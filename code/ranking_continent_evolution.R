@@ -49,7 +49,6 @@ continent_colors <- c(
 data_federations=read_excel("federations.xlsx", sheet = 1)
 data_federations$Region[data_federations$Code=="IIA"]="Independent"
 
-
 # Check if all country codes in the ranking file are present in the federations data
 all(data_ranking$Country%in%data_federations$Code)
 
@@ -59,15 +58,6 @@ colnames(temp)[1]="Country"
 # Add region/continent name to ranking dataset
 data_ranking=left_join(data_ranking,temp)
 rm(temp)
-
-
-colnames(data_ranking)
-
-
-
-library(dplyr)
-library(ggplot2)
-library(scales)
 
 # 1. Calculate the percentage of athletes by country, year, and gender
 region_share <- data_ranking %>%
